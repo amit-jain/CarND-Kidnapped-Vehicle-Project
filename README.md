@@ -1,9 +1,6 @@
 # Overview
 This repository contains all the code needed to complete the final project for the Localization course in Udacity's Self-Driving Car Nanodegree.
 
-#### Submission
-All you will submit is your completed version of `particle_filter.cpp`, which is located in the `src` directory. You should probably do a `git pull` before submitting to verify that your project passes the most up-to-date version of the grading code (there are some parameters in `src/main.cpp` which govern the requirements on accuracy and run time.)
-
 ## Project Introduction
 Your robot has been kidnapped and transported to a new location! Luckily it has a map of this location, a (noisy) GPS estimate of its initial location, and lots of (noisy) sensor and control data.
 
@@ -104,10 +101,6 @@ root
     |   particle_filter.h
 ```
 
-The only file you should modify is `particle_filter.cpp` in the `src` directory. The file contains the scaffolding of a `ParticleFilter` class and some associated methods. Read through the code, the comments, and the header file `particle_filter.h` to get a sense for what this code is expected to do.
-
-If you are interested, take a look at `src/main.cpp` as well. This file contains the code that will actually be running your particle filter and calling the associated methods.
-
 ## Inputs to the Particle Filter
 You can find the inputs to the particle filter in the `data` directory. 
 
@@ -121,14 +114,50 @@ You can find the inputs to the particle filter in the `data` directory.
 
 > * Map data provided by 3D Mapping Solutions GmbH.
 
-## Success Criteria
-If your particle filter passes the current grading code in the simulator (you can make sure you have the current version at any time by doing a `git pull`), then you should pass! 
+## Implementation
+The following number of particles were experimented with while running the program with the simulator:
+#### 10
 
-The things the grading code is looking for are:
+`
+x = 0.162
+y = 0.150
+yaw = 0.005
+runtime = 69.92 seconds
+`
+#### 50
 
+`
+x = 0.122
+y = 0.112
+yaw = 0.004
+runtime = 78.42 seconds
+`
 
-1. **Accuracy**: your particle filter should localize vehicle position and yaw to within the values specified in the parameters `max_translation_error` and `max_yaw_error` in `src/main.cpp`.
+#### 100
 
-2. **Performance**: your particle filter should complete execution within the time of 100 seconds.
+`
+x = 0.116
+y = 0.108
+yaw = 0.004
+runtime = 80.55 seconds
+`
+#### 150
 
+`
+x = 0.110
+y = 0.105
+yaw = 0.004
+runtime = 83.54 seconds
+`
+
+#### 200
+
+`
+x = 0.112
+y = 0.107
+yaw = 0.004
+runtime = 85.80 seconds
+`
+
+The final selection was 100 because over that there was not too much to gain in the error reduction and also to have a reasonable runtime.
 
